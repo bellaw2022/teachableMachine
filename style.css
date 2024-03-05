@@ -49,13 +49,15 @@ img:hover {
 
 
 body {
-  background-image: url('assets/day.jpg');
+  background-image: url('assets/bg.webp');
   background-size: cover; /* Cover the entire page */
   background-position: center; /* Center the background image */
   background-attachment: fixed; /* Optional: Fix the background image during scroll */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-color: transparent;
-  
+  cursor: url('assets/mouse.jpeg'), auto;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+
 }
 
   .header-banner {
@@ -72,6 +74,9 @@ body {
   
   body {
     padding-top: 90px; 
+  }
+  body, canvas {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
   }
   
   /* CSS */
@@ -104,6 +109,8 @@ body {
     white-space: nowrap;
     will-change: box-shadow,transform;
     font-size: 14px;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+
   }
   
   .button-56:focus {

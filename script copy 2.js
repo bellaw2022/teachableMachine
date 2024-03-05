@@ -15,9 +15,8 @@ let canvas;
 // Setup function
 function setup() {
   canvas = createCanvas(320, 270);
-  canvas.position(250,250);
+  canvas.position(250,150);
   canvas.style('border-radius', '20px');
-  canvas.style('box-shadow', '0 0 20px 10px #2271b1'); 
   canvas.hide(); 
   const toggleButton = createButton('Toggle Camera');
   toggleButton.position(30,50);
@@ -59,6 +58,10 @@ function draw() {
   if (videoPlaying) {
     background(0);
     image(flippedVideo, 0, 0, width, height);
+    fill(255);
+    textSize(32);
+    textAlign(CENTER);
+    text(label, width / 2, height - 4);
   }
 }
 
@@ -69,7 +72,7 @@ function gotResult(error, results) {
     return;
   }
   label = results[0].label;
-  document.getElementById('label-container').textContent = `Hey! ${label} `;
+  // Only classify again if video is playing
   if (videoPlaying) {
     classifyVideo();
   }
