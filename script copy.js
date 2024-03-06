@@ -12,12 +12,10 @@ let toggleButton; // Declare toggleButton globally
 let snapButton; 
 let clearButton;
 
-let homeButton;
-
 // Setup function
 function setup() {
   canvas = createCanvas(320, 270);
-  canvas.parent('canvas-container');
+  canvas.position(50,300);
   canvas.style('border-radius', '20px');
   canvas.style('box-shadow', '0 0 20px 10px #2271b1'); 
   canvas.hide(); 
@@ -37,13 +35,7 @@ function setup() {
   clearButton.position(350, 50); 
   clearButton.class('button-56');
   clearButton.mousePressed(clearPictures);
-
-  homeButton = createButton('Home');
-  homeButton.position(500, 50); // Adjust position as needed
-  homeButton.class('button-56');
-  homeButton.mousePressed(function() {
-    window.location.href = 'index.html';
-  });
+  // clearButton.hide();
 
   
   classifier = ml5.imageClassifier(imageModelURL + 'model.json', videoReady);
@@ -96,10 +88,10 @@ function gotResult(error, results) {
     return;
   }
   label = results[0].label;
-  if (label == "Cat") label = "Kitten /ᐠ . ֑ . ᐟ\\";
-  if (label == "Dog") label = "Puppy ૮ ・ﻌ・ა ";
-  if (label == "Rabbit") label = "Little Rabbit ᕱ⑅ᕱ ";
-  document.getElementById('label-container').textContent = `-> Hey! ${label} `;
+  if (label == "Cat") label = "Kitten :)";
+  if (label == "Dog") label = "Puppy :)";
+  if (label == "Rabbit") label = "Little Rabbit :)";
+  document.getElementById('label-container').textContent = `->>>> Hey! ${label} `;
   if (videoPlaying) {
     classifyVideo();
   }
@@ -108,38 +100,33 @@ function gotResult(error, results) {
 function takePicture() {
   if (videoPlaying) {
     push();
-    translate(width, 0);
-    scale(-1, 1);
-    image(video, 0, 0, width, height);
-    pop();
+    translate(width, 0); 
+    scale(-1, 1); 
+    image(video, 0, 0, width, height); 
+    pop(); 
 
     let snap = get();
+
     let imgElement = createImg(snap.canvas.toDataURL());
     imgElement.style('display', 'block');
-    imgElement.style('margin', '10px auto');
+    imgElement.style('margin', '10px auto'); 
+
     imgElement.style('width', '200px');
     imgElement.style('height', 'auto');
 
-    let containerId = '';
-    if (label.includes("Puppy")) {
-      containerId = 'dog-container';
-    } else if (label.includes("Kitten")) {
-      containerId = 'cat-container';
-    } else if (label.includes("Little Rabbit")) {
-      containerId = 'rabbit-container';
+    let container = document.getElementById('snapshot-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'snapshot-container';
+      document.body.appendChild(container);
     }
-
-    if (containerId) {
-      let container = document.getElementById(containerId);
-      container.appendChild(imgElement.elt);
-    }
+    container.appendChild(imgElement.elt); 
   }
 }
 
-
 function clearPictures() {
-  document.getElementById('dog-container').innerHTML = ''; 
-  document.getElementById('cat-container').innerHTML = ''; 
-  document.getElementById('rabbit-container').innerHTML = ''; 
+  const container = document.getElementById('snapshot-container');
+  if (container) {
+    container.innerHTML = ''; 
+  }
 }
-

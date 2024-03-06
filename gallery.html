@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Identify</title>
-  <!-- <input type="file" id="upload-input" accept="image/*" style="display:none"/>
-  <label for="upload-input" class="button-56">Upload Picture</label> -->
   <script src="p5.min.js"></script>
   <script src="addons/p5.sound.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js"></script>
@@ -30,15 +28,31 @@
 <body>
   <main>
     <div class="instructions">
-      <h2>Welcome to Pet Identifier! </h2>
-      <p>Please use Full screen for better experience.</p>
-      <p>Press the "Turn on Camera" button to start your camera and show your pet to the camera. The system will try to identify your pet. </p>
+      <div id="title-w">
+        <h2>Welcome to the Pet Identifier!</h2>
+      </div>
+    <p>For the best experience, switch to full-screen mode.</p>
+    <p>Step 1: Click "Turn on Camera" to activate your camera and show your pet.</p>
+    <p>Step 2: Once your pet is detected, click "Take Picture" to save a snapshot.</p>
+    <p>Step 3: Picture will be sorted into the correct animal category.</p>
+    <p>If you wish to start over or clear the pictures, simply click "Clear Pictures". Have Fun !</p>
+
+      <div id="label-container"> -> Awaiting classification...</div>
+      <div id="canvas-container"></div>
+      <h3>Puppies ૮ ・ﻌ・ა </h3>
+      <div id="dog-container" class="animal-container">
+      </div>
+      <h3>Kittens /ᐠ . ֑ . ᐟ\ </h3>
+      <div id="cat-container" class="animal-container">
+      </div>
+      <h3>Rabbits  ᕱ⑅ᕱ </h3>
+      <div id="rabbit-container" class="animal-container">
+      </div>
       
-      <div id="label-container"> ->>>> Awaiting classification...</div>
     </div>
   </main>
   
-  <button id="home-button" class="button-56" onclick="window.location.href='index.html';">Home</button>
+  <!-- <button id="home-button" class="button-56" onclick="window.location.href='index.html';">Home</button> -->
   <script src="script.js"></script>
 </body>
 </html>
