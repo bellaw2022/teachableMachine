@@ -63,7 +63,6 @@ function toggleVideo() {
     if (video) {
       video.remove(); 
     }
-
   }
 }
 
@@ -91,7 +90,7 @@ function gotResult(error, results) {
   if (label == "Cat") label = "Kitten :)";
   if (label == "Dog") label = "Puppy :)";
   if (label == "Rabbit") label = "Little Rabbit :)";
-  document.getElementById('label-container').textContent = `->>>> Hey! ${label} `;
+  document.getElementById('label-container').textContent = `Hey! ${label} `;
   if (videoPlaying) {
     classifyVideo();
   }
@@ -120,7 +119,7 @@ function takePicture() {
       container.id = 'snapshot-container';
       document.body.appendChild(container);
     }
-    container.appendChild(imgElement.elt); 
+    container.appendChild(imgElement.elt); // Append the new snapshot to the container
   }
 }
 

@@ -10,10 +10,6 @@ img {
     height: auto;
     cursor: pointer;
 }
-img:hover {
-  transform: scale(1.3); /* Enlarge image by 10% on hover */
-}
-
 
 .modal {
     display: none;
